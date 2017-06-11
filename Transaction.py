@@ -16,10 +16,13 @@ class Transaction:
                         transaction separated by colons
         :type string: str
         """
+        fields = string.split(',')
+        self.cost = fields[0]
+        self.category = fields[1]
+        self.date = fields[2]
         Transaction.ID += 1
         Transaction.COUNT += 1
         self.id = Transaction.ID
-        self.cost, self.category, self.date = string.split(',')
 
     def get_cost(self):
         """

@@ -21,6 +21,9 @@ class Database:
         """
         self.db.insert(new_row.__dict__)
 
+    def clear(self):
+        self.db.purge_tables()
+
     @property
     def show_table(self):
         return self.db.all()

@@ -13,9 +13,9 @@ class Category:
         """
         Category.ID += 1
         Category.COUNT += 1
+        self.limit = limit
         self.name = name
         self.id = Category.ID
-        self.limit = limit
 
     def get_name(self):
         """
