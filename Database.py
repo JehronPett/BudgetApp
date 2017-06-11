@@ -1,33 +1,34 @@
 class Database:
     """
-    Database object that will hold all transactions
+    Database class that can hold objects
     """
     def __init__(self):
         """
-        Initialize a new database
+        Initialize the new database
         """
-        self.transactions = []
+        self.db = []
 
-    def insert(self, new_transaction):
+    def insert(self, new_row):
         """
         Insert a new transaction into the database
         :param new_transaction: self-explanatory
         :return: None
         """
-        self.transactions.append(new_transaction)
+        self.db.append(new_row)
 
-    def remove(self, old_transaction):
+    def remove(self, old_row):
         """
         Remove an old_transaction
         :param old_transaction: self-explanatory
         :return: None
         """
-        self.transactions.remove(old_transaction)
+        self.db.remove(old_row)
 
-    def select(self, transaction_id):
+    def select(self, row_id):
         """
         Access a old transaction object by ID
         :param old_transaction: self-explanatory
         :return: the specified transaction
         """
-        return self.transactions[transaction_id]
+        return self.db[row_id]
+
