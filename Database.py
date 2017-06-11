@@ -1,34 +1,27 @@
+import tinydb as database
+
 class Database:
     """
     Database class that can hold objects
     """
-    def __init__(self):
+    def __init__(self, name):
         """
         Initialize the new database
+        :param name: the name of this database
         """
-        self.db = []
+        db_file = open("{}.json".format(name), "w+")
+        self.db = database.TinyDB('{}'.format(db_file.name))
 
     def insert(self, new_row):
         """
         Insert a new transaction into the database
-        :param new_transaction: self-explanatory
+        :param new_row: self-explanatory
+        :type new_row: object
         :return: None
         """
-        self.db.append(new_row)
+        self.db.insert(new_row.__dict__)
 
-    def remove(self, old_row):
-        """
-        Remove an old_transaction
-        :param old_transaction: self-explanatory
-        :return: None
-        """
-        self.db.remove(old_row)
-
-    def select(self, row_id):
-        """
-        Access a old transaction object by ID
-        :param old_transaction: self-explanatory
-        :return: the specified transaction
-        """
-        return self.db[row_id]
+    @property
+    def show_table(self):
+        return self.db.all()
 

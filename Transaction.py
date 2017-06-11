@@ -19,7 +19,7 @@ class Transaction:
         Transaction.ID += 1
         Transaction.COUNT += 1
         self.id = Transaction.ID
-        self.cost, self.category, self.date = string.split(':')
+        self.cost, self.category, self.date = string.split(',')
 
     def get_cost(self):
         """
