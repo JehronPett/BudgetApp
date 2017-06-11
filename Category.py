@@ -4,7 +4,6 @@ class Category:
     category of the budget and it's spending limit.
     """
     ID = 0
-    COUNT = 0
 
     def __init__(self, name, limit):
         """
@@ -12,7 +11,6 @@ class Category:
         :param name: the name of this category
         """
         Category.ID += 1
-        Category.COUNT += 1
         self.limit = limit
         self.name = name
         self.id = Category.ID

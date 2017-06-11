@@ -6,22 +6,26 @@ class Transaction:
     transaction.
     """
     ID = 0
-    COUNT = 0
 
-    def __init__(self, string):
+    def __init__(self, cost, category, date):
         """
-        Initialize a new transaction with a full
-        string
-        :param string: A string representation of the
-                        transaction separated by colons
-        :type string: str
+        Initialize a new transaction to be
+        documented
+
+        :param cost: The total cost of this
+                        transaction
+        :type cost: float
+        :param category: The category of the
+                        budget this transaction
+                        falls under
+        :type category: str
+        :param date: The date of this transaction
+        :type date: str
         """
-        fields = string.split(',')
-        self.cost = fields[0]
-        self.category = fields[1]
-        self.date = fields[2]
         Transaction.ID += 1
-        Transaction.COUNT += 1
+        self.cost = cost
+        self.category = category
+        self.date = date
         self.id = Transaction.ID
 
     def get_cost(self):
@@ -68,11 +72,3 @@ class Transaction:
         :return: None
         """
         self.date = new_date
-
-    def print(self):
-        """
-        Print this transaction's data to the console
-        :return: None
-        """
-        print("{} {} {} {}".format(self.id, self.date,
-                                   self.category, self.cost))
