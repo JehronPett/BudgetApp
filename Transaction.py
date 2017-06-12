@@ -22,11 +22,11 @@ class Transaction:
         :param date: The date of this transaction
         :type date: str
         """
-        Transaction.ID += 1
         self.cost = cost
         self.category = category
         self.date = date
         self.id = Transaction.ID
+        Transaction.ID += 1
 
     def get_cost(self):
         """

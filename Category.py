@@ -10,10 +10,10 @@ class Category:
         Initialize a new Category object
         :param name: the name of this category
         """
-        Category.ID += 1
         self.limit = limit
         self.name = name
         self.id = Category.ID
+        Category.ID += 1
 
     def get_name(self):
         """
