@@ -1,1 +1,1 @@
-{"_default": {}}
+{"_default": {"1": {"id": 0, "category": "Food", "date": "06/03/17", "cost": 98.76}, "2": {"id": 1, "category": "Clothes", "date": "06/04/17", "cost": 345.01}, "3": {"cost": 100.0, "id": 2, "category": "Food", "date": "06/05/17"}}}

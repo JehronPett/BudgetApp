@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="145a97e1-8dc5-4c4f-9e19-5c3d730e9b7f" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Main.py" afterPath="$PROJECT_DIR$/Command_Line_UI.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Category.py" afterPath="$PROJECT_DIR$/Category.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Transaction.py" afterPath="$PROJECT_DIR$/Transaction.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Window.py" afterPath="$PROJECT_DIR$/Window.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories.json" afterPath="$PROJECT_DIR$/categories.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Command_Line_UI.py" afterPath="$PROJECT_DIR$/Command_Line_UI.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,8 +50,8 @@
       <file leaf-file-name="Command_Line_UI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Command_Line_UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1043">
-              <caret line="18" column="71" lean-forward="false" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+            <state relative-caret-position="1665">
+              <caret line="111" column="57" lean-forward="false" selection-start-line="111" selection-start-column="57" selection-end-line="111" selection-end-column="57" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -97,8 +92,8 @@
         <option value="$PROJECT_DIR$/Budget.py" />
         <option value="$PROJECT_DIR$/Transaction.py" />
         <option value="$PROJECT_DIR$/Category.py" />
-        <option value="$PROJECT_DIR$/Command_Line_UI.py" />
         <option value="$PROJECT_DIR$/categories.json" />
+        <option value="$PROJECT_DIR$/Command_Line_UI.py" />
       </list>
     </option>
   </component>
@@ -339,18 +334,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Transaction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Category.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Transaction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -365,8 +360,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Command_Line_UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1043">
-          <caret line="18" column="71" lean-forward="false" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+        <state relative-caret-position="1665">
+          <caret line="111" column="57" lean-forward="false" selection-start-line="111" selection-start-column="57" selection-end-line="111" selection-end-column="57" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>

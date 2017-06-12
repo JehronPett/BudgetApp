@@ -36,7 +36,7 @@ def budget_setup():
         string_list = user_input.split(",")
         category = Category(string_list[0], float(string_list[1]))
         CATEGORIES.insert(category.__dict__)
-        user_input = input("->")
+        user_input = input("-> ")
     budget_limit = compute_budget_total(CATEGORIES)
     budget = Budget(budget_limit, TRANSACTIONS, CATEGORIES)
     print("Leaving budget setup...")
@@ -44,8 +44,47 @@ def budget_setup():
 
 
 def budget_view(budget):
-    print("In budget view...")
-    print("Leaving budget view...")
+    print("Opening budget view...")
+
+    user_input = input("-> ").lower()
+    while(user_input != "home"):
+        if user_input == "add transaction":
+            add_transaction(budget)
+        elif user_input == "view transactions":
+            print(pandas.DataFrame(
+                budget.transactions.all()).set_index("id"))
+        elif user_input == "view status":
+            if (budget.over_total_budget()):
+                print("You are over your budget.")
+            else:
+                print("Your spending has been in budget!")
+        user_input = input("-> ").lower()
+
+    print("Closing budget view...")
+
+def add_transaction(budget):
+    print("You can add a transaction by inputting"
+          "the price of the transaction, the category"
+          "it falls under, and the date of the transaction,"
+          " all separated by commas. Enter done when you are"
+          " finished adding transactions.")
+    user_input = input("-> ")
+    while user_input != "done":
+        transaction_data = user_input.split(",")
+        cost = float(transaction_data[0])
+        category = transaction_data[1]
+        date = transaction_data[2]
+        verify_category = budget.categories.search(
+            QUERY.name == category)
+        if len(verify_category) > 0:
+            new_transaction = Transaction(
+                cost,category,date)
+            budget.transactions.insert(new_transaction.__dict__)
+        else:
+            print("That category has not been created, try again.")
+        user_input = input("-> ")
+    print("Returning to budget view")
+
 
 def compute_budget_total(categories):
     """
@@ -63,27 +102,6 @@ def compute_budget_total(categories):
         sum += float(category[0]['limit'])
     return sum
 
-def main():
-    # Create a category and two transactions for testing purposes
-    category_one = Category("Food", 200.00)
-    category_two = Category("Clothes", 300.00)
-    transaction_one = Transaction(98.76,"Food","06/03/17")
-    transaction_two = Transaction(345.01,"Clothes","06/04/17")
-    transaction_three = Transaction(100.0,"Food","06/05/17")
-    # Add these category and transaction objects to their
-    # respective databases
-    CATEGORIES.insert(category_one.__dict__)
-    CATEGORIES.insert(category_two.__dict__)
-    TRANSACTIONS.insert(transaction_one.__dict__)
-    TRANSACTIONS.insert(transaction_two.__dict__)
-    TRANSACTIONS.insert(transaction_three.__dict__)
-    # Print these databases
-    # print(CATEGORIES.all())
-    # print(TRANSACTIONS.all())
-    # Set Budget
-    budget = Budget(500.0, TRANSACTIONS, CATEGORIES)
-    update(budget)
-
 def update(budget):
     print("Budget total is: $" + "{0:.2f}".format(budget.get_limit()))
     for i in range(1, len(CATEGORIES) + 1):
@@ -92,13 +110,8 @@ def update(budget):
         category_limit = category['limit']
         print("{}'s limit is ${}".format(category_name,
                                          category_limit))
-    print ()
-    print ("Here are your transactions: ")
-    print ()
-    print (pandas.DataFrame(TRANSACTIONS.all()).set_index('id'))
-    print ("Total spent is: " + "${0:.2f}".format(budget.total_spent))
-    print (budget.over_total_budget())
 
+    print ("Total spent is: " + "${0:.2f}".format(budget.total_spent))
 
 def clear():
     CATEGORIES.purge_tables()
@@ -108,5 +121,4 @@ def clear():
 CATEGORIES = None
 TRANSACTIONS = None
 QUERY = Query()
-
 main_menu()
