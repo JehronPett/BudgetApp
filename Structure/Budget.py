@@ -59,7 +59,7 @@ class Budget:
         :return: True if we are over our total budget,
                     False otherwise
         """
-        return self.total_spent > self.get_limit()
+        return self.total_spent() > self.get_limit()
 
     def over_category_budget(self, category):
         """
@@ -75,6 +75,15 @@ class Budget:
     def category_limit(self, category):
         return self.categories.search(
             Query().name == category)[0]['limit']
+
+
+    def category_total(self, category):
+        transactions_in_category = self.transactions.search(
+            Query().category == category)
+        category_total_sum = 0
+        for i in range(len(transactions_in_category)):
+            category_total_sum += transactions_in_category[i]['cost']
+        return category_total_sum
 
     def category_totals(self):
         """

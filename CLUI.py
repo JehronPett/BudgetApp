@@ -1,8 +1,9 @@
-from Transaction import Transaction
-from Category import Category
-from Budget import Budget
-from tinydb import TinyDB,Query
 import pandas
+from tinydb import TinyDB, Query
+
+from Structure.Budget import Budget
+from Structure.Category import Category
+from Structure.Transaction import Transaction
 
 
 def main_menu():
@@ -10,11 +11,12 @@ def main_menu():
     print("What would you like to do?")
     user_input = input("-> ")
     while (user_input != "quit"):
-        if user_input.lower() == "new budget":
+        # TODO: I want to be able to add/remove a category from an "edit budget" command
+        if user_input.lower() == "add new budget":
             budget_setup()
-        elif user_input.lower() == "budget view":
-            CATEGORIES = TinyDB("categories.json")
-            TRANSACTIONS = TinyDB("transactions.json")
+        elif user_input.lower() == "view budget":
+            CATEGORIES = TinyDB("Backend/categories.json")
+            TRANSACTIONS = TinyDB("Backend/transactions.json")
             budget_limit = compute_budget_total(CATEGORIES)
             budget_view(Budget(budget_limit, TRANSACTIONS, CATEGORIES))
         else:
@@ -23,10 +25,13 @@ def main_menu():
     print("Goodbye.")
 
 def budget_setup():
+    # TODO: Set up a structure that allows me to input my initial budget limit, then fill out categories after
+    # TODO: This should allow for an "Extra" category of the budget which has a limit that evaluates to the
+    # TODO: total budget limit minus the
     print("In budget setup...")
-    db_file = open("{}.json".format("categories"), "w+")
+    db_file = open("Backend/{}.json".format("categories"), "w+")
     CATEGORIES = TinyDB('{}'.format(db_file.name))
-    db_file = open("{}.json".format("transactions"), "w+")
+    db_file = open("Backend/{}.json".format("transactions"), "w+")
     TRANSACTIONS = TinyDB('{}'.format(db_file.name))
     print("Let's add the budget categories. Please enter a category"
           "by entering the name of the category and its limit,"
@@ -39,35 +44,57 @@ def budget_setup():
         user_input = input("-> ")
     budget_limit = compute_budget_total(CATEGORIES)
     budget = Budget(budget_limit, TRANSACTIONS, CATEGORIES)
-    print("Leaving budget setup...")
+    print("Leaving budget setup and returning to main menu...")
     budget_view(budget)
-
 
 def budget_view(budget):
     print("Opening budget view...")
-
     user_input = input("-> ").lower()
-    while(user_input != "home"):
+    while(user_input != "done"):
+        # TODO: I want to be able to remove a transaction with a "remove transaction" command
         if user_input == "add transaction":
             add_transaction(budget)
         elif user_input == "view transactions":
-            print(pandas.DataFrame(
-                budget.transactions.all()).set_index("id"))
-        elif user_input == "view status":
-            if (budget.over_total_budget()):
-                print("You are over your budget.")
+            if len(budget.transactions) > 0:
+                print(pandas.DataFrame(
+                    budget.transactions.all()).set_index("id"))
             else:
-                print("Your spending has been in budget!")
+                print("I could not find any transactions to display.")
+        elif user_input == "view status":
+            view_status(budget)
+            if (budget.over_total_budget()):
+                print("You are over your budget. You're bugging out.")
+            else:
+                print("Your spending has been in budget. Keep it up.")
+        else:
+            print("I do not recognize that command. Try again")
         user_input = input("-> ").lower()
 
-    print("Closing budget view...")
+    print("Closing budget view and returning to main menu...")
+
+def view_status(budget):
+    print()
+    print("Your Budget limit: $" + "{0:.2f}".format(budget.get_limit()))
+    print()
+    for i in range(len(budget.categories)):
+        category = budget.categories.search(QUERY.id == i)[0]
+        category_name = category['name']
+        category_limit = category['limit']
+        print("{}'s limit: $".format(category_name) +
+              "{0:.2f}".format(category_limit))
+        category_total = budget.category_total(category_name)
+        print("Total spending in {}'s category: ".format(category_name) +
+              "${0:.2f}".format(float(category_total)))
+        print()
+
+    print("Total spending amounts to: " + "${0:.2f}".format(budget.total_spent()))
 
 def add_transaction(budget):
-    print("You can add a transaction by inputting"
-          "the price of the transaction, the category"
-          "it falls under, and the date of the transaction,"
-          " all separated by commas. Enter done when you are"
-          " finished adding transactions.")
+    print("You can add a transaction by inputting")
+    print("the price of the transaction, the category")
+    print("it falls under, and the date of the transaction,")
+    print("all separated by commas. Enter done when you are")
+    print("finished adding transactions.")
     user_input = input("-> ")
     while user_input != "done":
         transaction_data = user_input.split(",")
@@ -83,7 +110,7 @@ def add_transaction(budget):
         else:
             print("That category has not been created, try again.")
         user_input = input("-> ")
-    print("Returning to budget view")
+    print("Returning to budget view...")
 
 
 def compute_budget_total(categories):
@@ -101,21 +128,6 @@ def compute_budget_total(categories):
         category = categories.search(QUERY.id == i)
         sum += float(category[0]['limit'])
     return sum
-
-def update(budget):
-    print("Budget total is: $" + "{0:.2f}".format(budget.get_limit()))
-    for i in range(1, len(CATEGORIES) + 1):
-        category = CATEGORIES.search(QUERY.id == i)[0]
-        category_name = category['name']
-        category_limit = category['limit']
-        print("{}'s limit is ${}".format(category_name,
-                                         category_limit))
-
-    print ("Total spent is: " + "${0:.2f}".format(budget.total_spent))
-
-def clear():
-    CATEGORIES.purge_tables()
-    TRANSACTIONS.purge_tables()
 
 
 CATEGORIES = None
