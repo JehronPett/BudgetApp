@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="145a97e1-8dc5-4c4f-9e19-5c3d730e9b7f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/categories.json" afterPath="$PROJECT_DIR$/Backend/categories.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CLUI.py" afterPath="$PROJECT_DIR$/CLUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Structure/Budget.py" afterPath="$PROJECT_DIR$/Structure/Budget.py" />
     </list>
@@ -31,7 +33,7 @@
       <file leaf-file-name="Category.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Structure/Category.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="-136">
               <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding />
             </state>
@@ -41,8 +43,8 @@
       <file leaf-file-name="Budget.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Structure/Budget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="117" column="37" lean-forward="false" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="37" />
+            <state relative-caret-position="329">
+              <caret line="128" column="41" lean-forward="false" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -51,11 +53,21 @@
       <file leaf-file-name="CLUI.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CLUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2744">
-              <caret line="204" column="37" lean-forward="false" selection-start-line="204" selection-start-column="37" selection-end-line="204" selection-end-column="37" />
+            <state relative-caret-position="-984">
+              <caret line="119" column="43" lean-forward="true" selection-start-line="119" selection-start-column="43" selection-end-line="119" selection-end-column="43" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transactions.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/transactions.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/Backend/categories.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+              <caret line="0" column="64" lean-forward="false" selection-start-line="0" selection-start-column="64" selection-end-line="0" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -95,6 +107,7 @@
         <option value="$PROJECT_DIR$/categories.json" />
         <option value="$PROJECT_DIR$/Command_Line_UI.py" />
         <option value="$PROJECT_DIR$/Budget.py" />
+        <option value="$PROJECT_DIR$/Backend/categories.json" />
         <option value="$PROJECT_DIR$/Structure/Budget.py" />
         <option value="$PROJECT_DIR$/CLUI.py" />
       </list>
@@ -281,7 +294,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3178082" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -347,8 +360,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Structure/Category.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="-136">
           <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Structure/Budget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="128" column="41" lean-forward="false" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -356,23 +377,23 @@
     <entry file="file://$PROJECT_DIR$/Backend/categories.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+          <caret line="0" column="64" lean-forward="false" selection-start-line="0" selection-start-column="64" selection-end-line="0" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Structure/Budget.py">
+    <entry file="file://$PROJECT_DIR$/Backend/transactions.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="117" column="37" lean-forward="false" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CLUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2744">
-          <caret line="204" column="37" lean-forward="false" selection-start-line="204" selection-start-column="37" selection-end-line="204" selection-end-column="37" />
+        <state relative-caret-position="-984">
+          <caret line="119" column="43" lean-forward="true" selection-start-line="119" selection-start-column="43" selection-end-line="119" selection-end-column="43" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

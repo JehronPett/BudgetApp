@@ -123,9 +123,9 @@ class Budget:
         :type categories: TinyDB
         :return: the total budget
         """
-        QUERY = Query()
         sum = 0
-        for i in range(len(categories)):
-            category = categories.search(QUERY.id == i)
-            sum += float(category[0]['limit'])
+        list_of_categories = categories.all()
+        for i in range(len(list_of_categories)):
+            category = list_of_categories[i]
+            sum += float(category['limit'])
         return sum

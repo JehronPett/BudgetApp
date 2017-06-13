@@ -14,8 +14,7 @@ def main_menu():
     print("Welcome to the Budget App.")
     print("What would you like to do?")
     user_input = input("-> ").lower()
-    while (user_input != "quit"):
-        # TODO: Implement the remove category functionality
+    while user_input != "quit":
         if user_input == "add new budget":
             budget_setup()
         elif user_input == "view budget":
@@ -118,17 +117,17 @@ def edit_budget(budget):
     user_input = input("-> ").lower()
     while user_input != "done":
         if user_input == "add":
-            add_categories(budget.categories)
+            add_category(budget.categories)
         elif user_input == "delete":
             print("Please enter the names of the category you "
                   "would like to delete.")
-            delete_categories(budget.categories)
+            remove_category(budget.categories)
         else:
             print("I do not recognize that command.")
         user_input = input("-> ").lower()
-    print("Leaving edit budget view and returning to main menu...")
+    print("Leaving edit budget view and returning to the budget view...")
 
-def add_categories(category_db):
+def add_category(category_db):
     """
     This is the functionality for adding a category in the edit
     budget view.
@@ -143,12 +142,24 @@ def add_categories(category_db):
         category_db.insert(category.__dict__)
         user_input = input("-> ").lower()
 
-def delete_categories(category_db):
+def remove_category(category_db):
     """
     This is the functionality for deleting a category in the
     edit budget view.
     """
-    print("This functionality has not been implemented yet.")
+    # TODO: When deleting a category, delete all transactions that fall under it
+    print("Please enter the name of the category you would like to remove")
+    category_to_delete = input("-> ")
+    while category_to_delete != "done":
+        find_category = category_db.search(QUERY.name == category_to_delete)
+        if len(find_category) == 1:
+            category_db.remove(QUERY.name == category_to_delete)
+            print("Successfully removed the "
+                  "'{}' category".format(category_to_delete))
+        else:
+            print("Hmm... I couldn't find that category.")
+        category_to_delete = input("-> ")
+    print("Returning to edit budget view...")
 
 def view_status(budget):
     """
@@ -160,8 +171,9 @@ def view_status(budget):
     print()
     print("Your Budget limit: $" + "{0:.2f}".format(budget.get_limit()))
     print()
-    for i in range(len(budget.categories)):
-        category = budget.categories.search(QUERY.id == i)[0]
+    list_of_categories = budget.categories.all()
+    for i in range(len(list_of_categories)):
+        category = list_of_categories[i]
         category_name = category['name']
         category_limit = category['limit']
         print("{}'s limit: $".format(category_name) +
