@@ -43,7 +43,7 @@ def budget_setup():
     db_file = open("Backend/{}.json".format("transactions"), "w+")
     TRANSACTIONS = TinyDB('{}'.format(db_file.name))
     print("Now let's add the spending categories of this budget.")
-    add_categories(CATEGORIES)
+    add_category(CATEGORIES)
     budget_limit = Budget.compute_budget_total(CATEGORIES)
     budget = Budget(budget_limit, TRANSACTIONS, CATEGORIES)
     print("Leaving budget setup and opening budget view...")
@@ -216,6 +216,9 @@ def remove_transaction(budget):
     This is the functionality for removing a transaction from
     our budget transactions database.
     """
+    # TODO: Obviously implement this, but also think about what happens
+    #       add a transaction, then quit the app, then run it again.
+    #       What will the id be of a transaction added then?
     print("This functionality has not been implemented yet")
 
 
