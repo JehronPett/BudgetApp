@@ -111,3 +111,21 @@ class Budget:
         :return: None
         """
         self.limit = new_limit
+
+    @classmethod
+    def compute_budget_total(cls, categories):
+        """
+        Compute the total amount of a budget
+        based on the total sum of the category
+        limits
+        :param categories: a database of categories
+                            and their limits
+        :type categories: TinyDB
+        :return: the total budget
+        """
+        QUERY = Query()
+        sum = 0
+        for i in range(len(categories)):
+            category = categories.search(QUERY.id == i)
+            sum += float(category[0]['limit'])
+        return sum
