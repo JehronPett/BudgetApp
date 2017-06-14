@@ -13,6 +13,7 @@ def main_menu():
     """
     print("Welcome to the Budget App.")
     print("What would you like to do?")
+    print("\n(view budget) (add new budget) (quit)")
     user_input = input("-> ").lower()
     while user_input != "quit":
         if user_input == "add new budget":
@@ -24,6 +25,7 @@ def main_menu():
             budget_view(Budget(budget_limit, TRANSACTIONS, CATEGORIES))
         else:
             print("I do not recognize that command. Try again")
+        print("\n(view budget) (add new budget) (quit)")
         user_input = input("-> ").lower()
     print("Goodbye.")
 
@@ -58,6 +60,7 @@ def budget_view(budget):
     'done' : close budget view
     """
     print("Opening budget view...")
+    print("\n(transactions view) (view status) (edit budget) (done)")
     user_input = input("-> ").lower()
     while(user_input != "done"):
         if user_input == "transactions view":
@@ -68,10 +71,12 @@ def budget_view(budget):
                 print("You are over your budget. You're bugging out.")
             else:
                 print("Your spending has been in budget. Keep it up.")
+            print()
         elif user_input == "edit budget":
             edit_budget(budget)
         else:
             print("I do not recognize that command. Try again")
+        print("\n(transactions view) (view status) (edit budget) (done)")
         user_input = input("-> ").lower()
     print("Closing budget view and returning to main menu...")
 
@@ -84,6 +89,7 @@ def transactions_view(budget):
     'done' : return to budget view
     """
     print("Opening transactions view...")
+    print("\n(add transactions) (view transactions) (remove transactions) (done)")
     user_input = input("-> ").lower()
     while user_input != "done":
         if user_input == "add transactions":
@@ -99,6 +105,7 @@ def transactions_view(budget):
             remove_transaction(budget)
         else:
             print("I do not recognize that command. Try again.")
+        print("\n(add transactions) (view transactions) (remove transactions) (done)")
         user_input = input("-> ")
     print("Closing transactions view and returning to budget view...")
 
@@ -114,6 +121,7 @@ def edit_budget(budget):
     """
     print("In edit budget view...")
     print("Would you like to add or delete a category?")
+    print("\n(add) (delete) (done)")
     user_input = input("-> ").lower()
     while user_input != "done":
         if user_input == "add":
@@ -124,6 +132,7 @@ def edit_budget(budget):
             remove_category(budget.categories)
         else:
             print("I do not recognize that command.")
+        print("\n(add) (delete) (done)")
         user_input = input("-> ").lower()
     print("Leaving edit budget view and returning to the budget view...")
 
